@@ -1,0 +1,193 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyMElBDRw474ZhXAZqsUnvJa",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/BramanTyamahedrawan/Kecerdasan-Buatan/blob/master/perbedaan%20reinforcement%20learning%20dan%20deep%20learning\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "\n",
+        "\n",
+        "# **PERBEDAAN REINFORCEMENT LEARNING DAN DEEP LEARNING SERTA IMPLEMENTASINYA**\n",
+        "\n",
+        "\n",
+        "---\n",
+        "\n",
+        "\n"
+      ],
+      "metadata": {
+        "id": "Tm8FZafp_H1_"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "NAMA    : BRAMAN TYAMAHENDRAWAN\n",
+        "\n",
+        "---\n",
+        "KELAS   : 2C\n",
+        "\n",
+        "---\n",
+        "ABSEN   : 04\n",
+        "\n",
+        "---\n",
+        "NIM     : 2141720097\n",
+        "\n",
+        "---\n",
+        "*link Github :*\n"
+      ],
+      "metadata": {
+        "id": "-V28_BFs_-Q2"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# 1. Reinforcement Learning"
+      ],
+      "metadata": {
+        "id": "BRYo81hBAfVI"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "PENGERTIAN REINFORCEMENT LEARNING\n",
+        "\n",
+        "---\n",
+        "\n",
+        "Reinforcement Learning berbeda berbeda dengan supervised maupun unsupervised learning. Algoritma ini dimaksudkan untuk membuat komputer dapat belajar sendiri dari lingkungan (environtment) melalui sebuah agent. Jadi komputer akan melakukan pencarian sendiri (self discovery) dengan cara berinteraksi dengan environment.\n",
+        "\n",
+        "\n",
+        "Reinforcement-learning didefinisikan sebagai metode machine learning yang berkaitan dengan bagaimana agent perangkat lunak harus mengambil action di dalam environment. RL adalah bagian dari metode deep learning yang membantu Anda memaksimalkan sebagian dari reward kumulatif."
+      ],
+      "metadata": {
+        "id": "FOFbBmFoBTzb"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "KARAKTERISTIK REINFORCEMENT LEARNING\n",
+        "\n",
+        "---\n",
+        "*   Tidak ada supervisor, hanya ada bilangan real atau reward signal\n",
+        "*   Pengambilan keputusan berurutan\n",
+        "*   Waktu memainkan peran penting dalam masalah reinforcement\n",
+        "*   Feedback balik selalu tertunda, tidak seketika\n",
+        "*   Action dari sebuah agent menentukan data selanjutnya yang diterimanya"
+      ],
+      "metadata": {
+        "id": "SqfdV2vxBkZR"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "KAPAN MENGGUNAKAN REINFORCEMENT LEARNING\n",
+        "\n",
+        "---\n",
+        "*   Action dari sebuah agent menentukan data selanjutnya yang diterimanya\n",
+        "*   Membantu menemukan action mana yang menghasilkan reward tertinggi selama periode yang lebih lama.\n",
+        "*   RL juga menyediakan fungsi reward bagi agent pembelajaran.\n",
+        "*   RL memungkinkan untuk mengetahui metode terbaik untuk mendapatkan reward besar\n"
+      ],
+      "metadata": {
+        "id": "MAHgOmphCFrt"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!pip install gym\n",
+        "!pip install procgen\n",
+        "!pip install gym-retro\n",
+        "!pip install stable-baselines"
+      ],
+      "metadata": {
+        "id": "QetjhblVGnrZ"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 5,
+      "metadata": {
+        "id": "k1bK-8Dy_GiD"
+      },
+      "outputs": [],
+      "source": [
+        "# Contoh Source Code Reinforcement Learning\n",
+        "\n",
+        "import matplotlib.pyplot as plt\n",
+        "%matplotlib inline\n",
+        "from IPython import display\n",
+        "\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from stable_baselines.common.policies import MlpPolicy\n",
+        "from stable_baselines.common.vec_env import DummyVecEnv\n",
+        "import gym\n",
+        "\n",
+        "env = gym.make('CartPole-v0')\n",
+        "env = DummyVecEnv([lambda: env])\n",
+        "\n",
+        "\n",
+        "obs = env.reset()\n",
+        "while True:\n",
+        "    action, _states = model.predict(obs)\n",
+        "    obs, rewards, dones, info = env.step(action)\n",
+        "    env.render()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 235
+        },
+        "id": "2IBK0uHIJkOA",
+        "outputId": "f6e3ee67-1e1a-492e-fc11-dccba1af63a9"
+      },
+      "execution_count": 13,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "NameError",
+          "evalue": "ignored",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-13-a5459ad716b0>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[1;32m      9\u001b[0m \u001b[0mobs\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0menv\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mreset\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     10\u001b[0m \u001b[0;32mwhile\u001b[0m \u001b[0;32mTrue\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 11\u001b[0;31m     \u001b[0maction\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0m_states\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mmodel\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mpredict\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mobs\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     12\u001b[0m     \u001b[0mobs\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mrewards\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mdones\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0minfo\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0menv\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mstep\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0maction\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     13\u001b[0m     \u001b[0menv\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mrender\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;31mNameError\u001b[0m: name 'model' is not defined"
+          ]
+        }
+      ]
+    }
+  ]
+}
